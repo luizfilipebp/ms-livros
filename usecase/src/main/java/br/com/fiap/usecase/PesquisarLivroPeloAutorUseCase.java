@@ -2,6 +2,8 @@ package br.com.fiap.usecase;
 
 import br.com.fiap.core.model.Livro;
 
+import java.util.List;
+
 public interface PesquisarLivroPeloAutorUseCase {
-    Livro pesquisar(String autor);
+    List<Livro> pesquisar(String autor);
 }
