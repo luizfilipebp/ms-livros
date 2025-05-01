@@ -3,6 +3,7 @@ plugins {
 }
 
 group = 'br.com.fiap.core'
+version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
