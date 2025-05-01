@@ -1,0 +1,6 @@
+rootProject.name = 'livros'
+include 'core'
+include 'infrastructure'
+include 'usecase'
+include 'application'
+
