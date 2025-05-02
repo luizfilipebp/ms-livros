@@ -5,6 +5,7 @@ import br.com.fiap.core.model.Livro;
 import br.com.fiap.usecase.PesquisarLivroPeloIsbnUseCase;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PesquisarLivroPeloIsbnUseCaseImpl implements PesquisarLivroPeloIsbnUseCase {
     private final PesquisarLivroPeloIsbnGateway pesquisarLivroPeloIsbnGateway;
@@ -14,7 +15,7 @@ public class PesquisarLivroPeloIsbnUseCaseImpl implements PesquisarLivroPeloIsbn
     }
 
     @Override
-    public List<Livro> pesquisar(String isbn) {
+    public Optional<Livro> pesquisar(String isbn) {
         return pesquisarLivroPeloIsbnGateway.pesquisar(Livro.validarIsbn(isbn));
     }
 }
