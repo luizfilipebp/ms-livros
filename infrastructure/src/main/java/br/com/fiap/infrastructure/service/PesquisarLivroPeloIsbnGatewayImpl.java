@@ -24,6 +24,6 @@ public class PesquisarLivroPeloIsbnGatewayImpl implements PesquisarLivroPeloIsbn
      */
     @Override
     public Optional<Livro> pesquisar(String isbn) {
-        return livroRepository.findById(Livro.validarIsbn(isbn)).map(LivroMapper.INSTANCE::toLivro);
+        return livroRepository.findById(Livro.validarIsbn(isbn)).map(LivroMapper.INSTANCE::livroEntityToLivro);
     }
 }

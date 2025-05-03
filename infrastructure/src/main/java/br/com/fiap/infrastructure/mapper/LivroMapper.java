@@ -13,6 +13,9 @@ import org.mapstruct.factory.Mappers;
 public interface LivroMapper {
     LivroMapper INSTANCE = Mappers.getMapper(LivroMapper.class);
 
+
+    Livro livroEntityToLivro(LivroEntity livroEntity);
+
     // Domain
     Livro toLivro(LivroPutReqBody livroPutReqBody);
     Livro toLivro(LivroPostReqBody livroPostReqBody);
