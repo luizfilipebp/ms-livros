@@ -59,8 +59,8 @@ public class Livro {
             throw new IsbnInvalidException("ISBN não pode ser nulo ou vazio");
         }
 
-        if (!isbn.matches("\\d{10}|\\d{13}")) {
-            throw new IsbnInvalidException("ISBN deve conter apenas números");
+        if (!isbn.matches("\\d{9}[\\dX]|\\d{13}")) {
+            throw new IsbnInvalidException("ISBN deve ter 10 ou 13 dígitos");
         }
 
         switch (isbn.length()) {
@@ -78,7 +78,7 @@ public class Livro {
                 throw new IsbnInvalidException("ISBN deve ter 10 ou 13 dígitos");
         }
 
-        return isbn.replaceAll("[^0-9]", "");
+        return isbn;
     }
 
     /**
