@@ -58,10 +58,8 @@ public class LivroController {
     @PutMapping("/{isbn}")
     public ResponseEntity<LivroPutResBody> editar(@PathVariable String isbn, @RequestBody LivroPutReqBody livro) {
         pesquisarLivroPeloIsbn.pesquisar(isbn).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
-        Livro livroEditado = LivroMapper.INSTANCE.toLivro(livro);
-        livroEditado.setIsbn(isbn);
 
-        return ResponseEntity.ok(LivroMapper.INSTANCE.toLivroPutResBody(editarLivro.editar(livroEditado)));
+        return ResponseEntity.ok(LivroMapper.INSTANCE.toLivroPutResBody(editarLivro.editar(new Livro(isbn, livro.titulo(), livro.autor(), livro.editora()))));
     }
 
     @DeleteMapping("/{isbn}")
