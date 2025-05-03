@@ -25,6 +25,6 @@ public class LivroEntity {
     @Column(name = "liv_autor")
     private String autor;
 
-    @Column(name = "liv_ano")
+    @Column(name = "liv_editora")
     private String editora;
 }
