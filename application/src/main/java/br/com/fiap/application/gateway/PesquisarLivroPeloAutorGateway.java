@@ -1,10 +1,8 @@
 package br.com.fiap.application.gateway;
 
 import br.com.fiap.core.model.Livro;
-
-import java.util.ArrayList;
-import java.util.List;
+import br.com.fiap.core.model.Page;
 
 public interface PesquisarLivroPeloAutorGateway {
-    List<Livro> pesquisar(String autor);
+    Page<Livro> pesquisar(String autor, int numeroPagina, int tamanhoPagina);
 }

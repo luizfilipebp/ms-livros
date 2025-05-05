@@ -2,6 +2,7 @@ package br.com.fiap.infrastructure.controller;
 
 
 import br.com.fiap.core.model.Livro;
+import br.com.fiap.core.model.Page;
 import br.com.fiap.infrastructure.dto.request.LivroPostReqBody;
 import br.com.fiap.infrastructure.dto.request.LivroPutReqBody;
 import br.com.fiap.infrastructure.dto.response.LivroPostResBody;
@@ -35,10 +36,12 @@ public class LivroController {
     }
 
     @GetMapping("/autor/{autor}")
-    public ResponseEntity<List<Livro>> livroPeloAutor(@PathVariable String autor) {
-        //@TODO implementar a paginacao
-        List<Livro> livro = pesquisarLivroPeloAutor.pesquisar(autor);
-        return ResponseEntity.ok(livro);
+    public ResponseEntity<Page<Livro>> livroPeloAutor(
+            @PathVariable String autor,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        Page<Livro> livros = pesquisarLivroPeloAutor.pesquisar(autor, page, size);
+        return ResponseEntity.ok(livros);
     }
 
     @GetMapping("/titulo/{titulo}")
