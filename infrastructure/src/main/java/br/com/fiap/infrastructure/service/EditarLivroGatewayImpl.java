@@ -21,6 +21,6 @@ public class EditarLivroGatewayImpl implements EditarLivroGateway {
      */
     @Override
     public Livro editar(Livro livro) {
-        return LivroMapper.INSTANCE.toLivro(livroRepository.save(LivroMapper.INSTANCE.toLivroEntity(livro)));
+        return LivroMapper.INSTANCE.livroEntityToLivro(livroRepository.save(LivroMapper.INSTANCE.livroToLivroEntity(livro)));
     }
 }

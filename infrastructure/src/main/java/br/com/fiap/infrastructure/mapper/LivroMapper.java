@@ -15,12 +15,11 @@ public interface LivroMapper {
 
 
     Livro livroEntityToLivro(LivroEntity livroEntity);
+    LivroEntity livroToLivroEntity(Livro livro);
+
 
     // Domain
-    Livro toLivro(LivroPutReqBody livroPutReqBody);
     Livro toLivro(LivroPostReqBody livroPostReqBody);
-    Livro toLivro(LivroEntity livroEntity);
-    LivroEntity toLivroEntity(Livro livro);
 
 
     // PUT
