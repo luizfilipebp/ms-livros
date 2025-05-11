@@ -6,10 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface LivroRepository extends JpaRepository<LivroEntity, String> {
     Page<LivroEntity> findByAutorContainingIgnoreCase(String autor, Pageable pageable);
-    List<LivroEntity> findByTitulo(String titulo);
+    Page<LivroEntity> findByTituloContainingIgnoreCase(String titulo, Pageable pageable);
 }

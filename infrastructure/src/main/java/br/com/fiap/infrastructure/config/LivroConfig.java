@@ -33,4 +33,9 @@ public class LivroConfig {
     PesquisarLivroPeloAutorUseCase pesquisarLivroPeloAutorUseCase(PesquisarLivroPeloAutorGateway gateway) {
         return new PesquisarLivroPeloAutorUseCaseImpl(gateway);
     }
+
+    @Bean
+    PesquisarLivroPeloTituloUseCase pesquisarLivroPeloTituloUseCase(PesquisarLivroPeloTituloGateway gateway) {
+        return new PesquisarLivroPeloTituloUseCaseImpl(gateway);
+    }
 }

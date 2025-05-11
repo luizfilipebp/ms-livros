@@ -14,8 +14,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("api/livros")
 @AllArgsConstructor
@@ -28,7 +26,6 @@ public class LivroController {
     private final PesquisarLivroPeloAutorUseCase pesquisarLivroPeloAutor;
     private final PesquisarLivroPeloTituloUseCase pesquisarLivroPeloTitulo;
 
-
     @GetMapping("/{isbn}")
     public ResponseEntity<Livro> livroPeloIsbn(@PathVariable String isbn) {
         Livro livro = pesquisarLivroPeloIsbn.pesquisar(Livro.validarIsbn(isbn)).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
@@ -40,17 +37,16 @@ public class LivroController {
             @PathVariable String autor,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
-        Page<Livro> livros = pesquisarLivroPeloAutor.pesquisar(autor, page, size);
-        return ResponseEntity.ok(livros);
+        return ResponseEntity.ok(pesquisarLivroPeloAutor.pesquisar(autor, page, size));
     }
 
     @GetMapping("/titulo/{titulo}")
-    public ResponseEntity<List<Livro>> livroPeloTitulo(@PathVariable String titulo) {
-        //@TODO implementar a paginacao
-        List<Livro> livro = pesquisarLivroPeloTitulo.pesquisar(titulo);
-        return ResponseEntity.ok(livro);
+    public ResponseEntity<Page<Livro>> livroPeloTitulo(
+            @PathVariable String titulo,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return ResponseEntity.ok(pesquisarLivroPeloTitulo.pesquisar(titulo, page, size));
     }
-
 
     @PostMapping
     public ResponseEntity<LivroPostResBody> cadastrar(@RequestBody @Valid LivroPostReqBody livro) {
@@ -70,5 +66,4 @@ public class LivroController {
         excluirLivro.excluir(isbn);
         return ResponseEntity.noContent().build();
     }
-
 }
