@@ -4,6 +4,7 @@ public record LivroPostResBody(
         String isbn,
         String titulo,
         String autor,
-        String editora
+        String editora,
+        Integer quantidade
 ) {
 }

@@ -1,4 +1,4 @@
-rootProject.name = 'livros'
+rootProject.name = 'ms-livros'
 include 'core'
 include 'infrastructure'
 include 'usecase'

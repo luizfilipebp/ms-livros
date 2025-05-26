@@ -7,13 +7,25 @@ public class Livro {
     private String titulo;
     private String autor;
     private String editora;
+    private int quantidade;
 
-    public Livro(String isbn, String titulo, String autor, String editora) {
+    public Livro(String isbn, String titulo, String autor, String editora, int quantidade) {
         this.isbn = validarIsbn(isbn);
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;
+        this.quantidade = validarQuantidade(quantidade);
     }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+
 
     public String getIsbn() {
         return isbn;
@@ -119,5 +131,13 @@ public class Livro {
         sum += checksum * 10;
 
         return sum % 11 == 0;
+    }
+
+    private static Integer validarQuantidade(Integer quantidade ) {
+        if (quantidade == null || quantidade < 0) {
+            throw new IllegalArgumentException("Quantidade deve ser um número inteiro positivo");
+        }
+
+        return quantidade;
     }
 }

@@ -27,4 +27,7 @@ public class LivroEntity {
 
     @Column(name = "liv_editora")
     private String editora;
+
+    @Column(name = "liv_quantidade", nullable = false)
+    private Integer quantidade;
 }

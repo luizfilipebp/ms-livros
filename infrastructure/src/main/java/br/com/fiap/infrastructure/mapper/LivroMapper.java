@@ -7,12 +7,12 @@ import br.com.fiap.infrastructure.dto.response.LivroPostResBody;
 import br.com.fiap.infrastructure.dto.response.LivroPutResBody;
 import br.com.fiap.infrastructure.entities.LivroEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface LivroMapper {
     LivroMapper INSTANCE = Mappers.getMapper(LivroMapper.class);
-
 
     Livro livroEntityToLivro(LivroEntity livroEntity);
     LivroEntity livroToLivroEntity(Livro livro);
