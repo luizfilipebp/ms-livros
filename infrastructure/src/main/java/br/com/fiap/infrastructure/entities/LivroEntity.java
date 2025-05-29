@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LivroEntity {
     @Id
-    @Column(name = "liv_isbn", nullable = false)
+    @Column(name = "liv_isbn")
     private String isbn;
 
     @Column(name = "liv_titulo")

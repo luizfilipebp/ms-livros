@@ -14,6 +14,7 @@ import org.mapstruct.factory.Mappers;
 public interface LivroMapper {
     LivroMapper INSTANCE = Mappers.getMapper(LivroMapper.class);
 
+    @Mapping(source = "isbn", target = "isbn")
     Livro livroEntityToLivro(LivroEntity livroEntity);
     LivroEntity livroToLivroEntity(Livro livro);
 
